@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @nuevo %>
+
+<div>
+  <%= link_to "Edit this nuevo", edit_nuevo_path(@nuevo) %> |
+  <%= link_to "Back to nuevos", nuevos_path %>
+
+  <%= button_to "Destroy this nuevo", @nuevo, method: :delete %>
+</div>

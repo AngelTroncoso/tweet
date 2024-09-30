@@ -1,0 +1,109 @@
+<!-- aplicaciones/views/nuevos/index.html.erb -->
+
+<!-- Estilos CSS -->
+<style>
+  body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+
+  #nuevos {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+
+  td {
+    background-color: #f9f9f9;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4CAF50;
+  }
+
+  a:hover {
+    color: #3e8e41;
+  }
+
+  .notice {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+</style>
+
+
+<!-- Contenido -->
+<p class="notice"><%= notice %></p>
+
+<% content_for :title, "Nuevos" %>
+
+<h1><center>Consulta de Tweets</center></h1>
+
+<div id="nuevos">
+  <table>
+    <thead>
+      <tr>
+        <th>Descripción</th>
+        <th>Usuario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @nuevos.each do |nuevo| %>
+        <tr>
+          <td><%= nuevo.description %></td>
+          <td><%= nuevo.username %></td>
+          <td>
+            <%= link_to "Ver", nuevo %>
+            <%= link_to "Editar", edit_nuevo_path(nuevo) %>
+            <%= link_to "Eliminar", nuevo, method: :delete, data: { confirm: "¿Estás seguro?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<!-- Estilo para el botón "Nuevo tweet" -->
+<style>
+  .btn-nuevo {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+  .btn-nuevo:hover {
+    background-color: #3e8e41;
+  }
+</style>
+
+<%= link_to "Nuevo tweet", new_nuevo_path, class: "btn-nuevo" %>
+
+</div>

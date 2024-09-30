@@ -1,0 +1,27 @@
+<%= form_with(model: nuevo) do |form| %>
+  <% if nuevo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(nuevo.errors.count, "error") %> prohibited this nuevo from being saved:</h2>
+
+      <ul>
+        <% nuevo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
