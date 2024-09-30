@@ -3,8 +3,8 @@
 <%= render @nuevo %>
 
 <div>
-  <%= link_to "Edit this nuevo", edit_nuevo_path(@nuevo) %> |
-  <%= link_to "Back to nuevos", nuevos_path %>
+  <%= link_to "Editar", edit_nuevo_path(@nuevo) %> |
+  <%= link_to "Volver", nuevos_path %>
 
-  <%= button_to "Destroy this nuevo", @nuevo, method: :delete %>
+  <%= button_to "Destruir", @nuevo, method: :delete %>
 </div>
