@@ -10,6 +10,6 @@
 
 Nuevo.destroy_all
 
-10.times do
+50.times do
   Nuevo.create(description: Faker::Lorem.sentence, username: Faker::Name.name)
 end
