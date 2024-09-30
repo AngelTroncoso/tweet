@@ -1,10 +1,14 @@
 class NuevosController < ApplicationController
   before_action :set_nuevo, only: %i[ show edit update destroy ]
 
-  # GET /nuevos or /nuevos.json
-  def index
-    @nuevos = Nuevo.paginate(page: params[:page], per_page: 10)
+# controladores/nuevos_controller.rb
+def index
+  @nuevos = Nuevo.paginate(page: params[:page], per_page: 10)
+
+  if params[:buscar].present?
+    @nuevos = Nuevo.search(params[:buscar]).paginate(page: params[:page], per_page: 10)
   end
+end
   # GET /nuevos/1 or /nuevos/1.json
   def show
   end

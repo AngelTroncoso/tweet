@@ -1,5 +1,6 @@
 <!-- aplicaciones/views/nuevos/index.html.erb -->
 
+
 <!-- Estilos CSS -->
 <style>
   body {
@@ -62,6 +63,16 @@
 <h1><center>Consulta de Tweets</center></h1>
 
 <div id="nuevos">
+  
+  <!-- Formulario de búsqueda -->
+  <div id="busqueda">
+    <%= form_tag(nuevos_path, method: 'get') do %>
+      <%= label_tag 'Buscar por username o descripción' %>
+      <%= text_field_tag 'buscar' %>
+      <%= submit_tag 'Buscar' %>
+    <% end %>
+  </div>
+  
   <table>
     <thead>
       <tr>
@@ -85,26 +96,27 @@
     </tbody>
   </table>
   <%= will_paginate @nuevos %>
+</div>
 
 
 <!-- Estilo para el botón "Nuevo tweet" -->
 <style>
   .btn-nuevo {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 20px;
-}
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+  }
 
   .btn-nuevo:hover {
     background-color: #3e8e41;
   }
+
 </style>
 
-<%= link_to "Nuevo tweet", new_nuevo_path, class: "btn-nuevo" %>
-
-</div>
+<div class="text-center" style="margin-top: 10px;">
+  <%= link_to "Nuevo tweet", new_nuevo_path, class: "btn-nuevo" %>
